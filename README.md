@@ -29,7 +29,7 @@ In this phase, we need to identify who the key stakeholders are. In this case, w
 
 ## Prepare
 Sršen encourages you to use public data that explores smart device users’ daily habits. She points you to a specific data set:
-FitBit Fitness Tracker Data (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set
+[FitBit Fitness Tracker Data](https://www.kaggle.com/arashnic/fitbit) (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set
 contains personal fitness tracker from thirty fitbit users. Thirty eligible Fitbit users consented to the submission of
 personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes
 information about daily activity, steps, and heart rate that can be used to explore users’ habits.
