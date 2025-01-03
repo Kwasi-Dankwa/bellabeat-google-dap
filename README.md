@@ -38,6 +38,8 @@ address those limitations as you begin to work more with this data.
 
 The data is contained in 18 CSV files via Amazon Mechanical Turk between April 12, 2016 - May 12, 2016.
 
+I removed duplicates and also made sure certain data types were consistent across all formats
+
 #### Business Task:
 
 Analyze fitness data from Fitbit users to uncover consumer usage insights and apply high-level marketing recommendations to one of Bellabeat's products to drive growth and enhance digital marketing strategies for the company. 
@@ -50,5 +52,6 @@ After viewing the data, I discovered there are some limitations:
 - The data is currently 9 years old and would no longer be considered relevant to the current representation of women today.
 - The logs regarding weight contain only a few logs from 8 users which is less than a third of the users included in this survey. This data wouldn't be that useless for my analysis
 - The citing for this data is low as it was collected from a third party.
+  
 
 
