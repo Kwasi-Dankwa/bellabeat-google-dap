@@ -1,0 +1,86 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+    install.packages("tidyverse")
+    library("tidyverse")
+  
+    install.packages("setwd")
+    library("lubridate")
+    
+    #for summarizing data
+    # Using dplyr for grouping and summarizing
+    #for data visualization for a scatter plot
+    install.packages("skimr")
+    library("skimr")                             
+    install.packages("dplyr")
+    library("dplyr")                             
+    library("ggplot2")                            
+    
+    
+    install.packages("janitor")
+    library("janitor")
+    
+    install.packages("plotrix")
+    library("plotrix")
+```
+```{r}
+# Import dataset
+daily_activity <- read.csv('bellabeat/dailyActivity_merged.csv')
+weight <- read.csv('bellabeat/weightLogInfo_merged.csv')
+daily_sleep <- read.csv("bellabeat/sleepDay_merged.csv")
+hourly_steps <- read.csv("bellabeat/hourlySteps_merged.csv")
+hourly_calories <- read.csv("bellabeat/hourlyCalories_merged.csv")
+hourly_intensities <- read.csv("bellabeat/hourlyIntensities_merged.csv")
+daily_steps <- read.csv("bellabeat/dailySteps_merged.csv")
+
+
+```
+
+
+```{r}
+# CHecking structure- data types
+str(hourly_intensities)
+str(hourly_calories)
+str(hourly_steps)
+str(daily_sleep)
+```
+
+
+# Cleaning Data Process
+```{r}
+length(unique(daily_activity$Id))
+length(unique(daily_sleep$Id))
+length(unique(hourly_calories$Id))
+length(unique(hourly_intensities$Id))
+length(unique(hourly_steps$Id))
+length(unique(weight$Id))
+length(unique(daily_steps$Id))
+
+# number of participants in weight is 8 which is too small
+
+```
+
+# Checking for duplicates
+```{r} 
+sum(duplicated(daily_activity))
+sum(duplicated(daily_sleep))
+sum(duplicated(hourly_calories))
+sum(duplicated(hourly_intensities))
+sum(duplicated(hourly_steps))
+sum(duplicated(daily_steps))
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
