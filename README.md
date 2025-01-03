@@ -6,7 +6,7 @@ Google Data Analytics Capstone Project
 
 
 
-### Introduction
+## Introduction
 
 Bellabeat is a technology company specializing in innovative wellness and fitness solutions, with a particular focus on women's health and well-being. They offer a range of smart wearable devices and associated mobile applications designed to empower individuals to monitor and improve their health and fitness. Bellabeat's products provide users with the tools to track various aspects of their well-being, including physical activity, sleep, stress levels, and reproductive health. The company is committed to promoting a holistic approach to health and wellness, offering features and insights that help users make informed decisions about their lifestyles and daily routines. Bellabeat's products aim to seamlessly integrate technology into daily life while prioritizing user health and comfort.
 
@@ -50,8 +50,9 @@ After viewing the data, I discovered there are some limitations:
 
 - The data only used 33 individuals which makes the sample size small which makes the data prone to bias
 - The data is currently 9 years old and would no longer be considered relevant to the current representation of women today.
-- The logs regarding weight contain only a few logs from 8 users which is less than a third of the users included in this survey. This data wouldn't be that useless for my analysis
-- The citing for this data is low as it was collected from a third party.
+
+## Analyze
+Based on Bella Beat’s request, we are going to examine the daily activities, weight, and sleep of the users to see if we can find any trends and correlations. We will then use all of the data collected and analyzed to determine proper marketing strategy suggestions that could help improve the company's marketing
   
 
 
