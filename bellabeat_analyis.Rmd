@@ -79,6 +79,104 @@ sum(duplicated(hourly_steps))
 sum(duplicated(daily_steps))
 ```
 
+```{r}
+# Generate a summary report for the dataset i'll be loooking at
+install.packages("skimr")
+library(skimr)
+skim(daily_activity)
+skim(daily_sleep)
+skim(weight)
+```
+
+
+```{r}
+       
+# Rename the date columns in activity_date, sleep_day, and date to the same title to merge later on. 
+# I had issues running the code but colnames confirms the coulumns have been renamed to the same titles
+
+colnames(weight)
+colnames(daily_sleep)
+colnames(daily_activity)
+
+
+```
+
+# Analysis 
+```{r}
+#make sure id datatypes are consistent across dataframes
+daily_sleep$id <- as.character(daily_sleep$id)
+daily_activity$id <- as.character(daily_activity$id)
+weight$id <- as.character(weight$id)
+
+#join data frames by id and activity_date
+merged_data <- daily_sleep %>%
+  right_join(daily_activity, by = c("id", "activity_date")) %>%
+  left_join(weight, by = c("id", "activity_date"))
+         
+#View the new data frame
+View(merged_data)
+
+```
+
+```{r}
+#Create a new column for the weekday based on activity_date and view the new column
+merged_data$weekday <- wday(merged_data$activity_date, label = TRUE)
+head(merged_data$weekday)
+View(merged_data)
+```
+# Insights
+```{r}
+# pull insights from data through summary
+merged_data %>%
+  select(totalsteps, totaldistance, veryactiveminutes, fairlyactiveminutes, lightlyactiveminutes, sedentaryminutes, calories)%>%
+  summary()
+
+# insights show that The average total steps are 7,638 steps. CDC recommended daily steps should be around 10,000 steps a day. However, NIH and CDC have recently provided research showing that more than 8,000 steps can also provide improvement in health when meeting daily steps.  (CDC and NIH)
+
+# The average very active minutes are 21.16 minutes while the sedentary minutes are an average of 991.20 minutes or 16.52 hours. Users' average for light activities is 192.8 minutes or 3.2 hours. This means they are spending most of their time doing light activities compared to the other categories. 
+
+# It is advised that spending more than 7-10 hours sedentary is bad for your health. 
+# It is recommended to do an average of 30 minutes a day of moderate activity and 75 minutes a week of vigorous activity.
+```
+```{r}
+merged_data %>%
+           select( calories)%>%
+           summary()
+```
+
+```{r}
+#Visual for total steps by the day of the week.
+ggplot(merged_data, aes(x = weekday, y = totalsteps)) +
+  geom_bar(stat = "identity", fill = "pink") +
+  labs(title = "Steps Logged by Day in the Week", x = "Day of the Week", y = "Total Steps")
+
+
+```
+
+```{r}
+# Visual for the active minutes vs sedentary
+
+Active <- sum(merged_data$very_active_distance)
+Fairly <- sum(merged_data$fairly_active_minutes)
+Lightly <- sum(merged_data$lightly_active_minutes)
+Sedentary <- sum(merged_data$sedentary_minutes)
+
+values <- c(19895, 181244, 12751, 931738)
+piepercent <- round(100 * values / sum(values), 1)
+categories <- c("Very Active", "Lightly Active", "Fairly Active", "Sedentary")
+colors <- c("red", "blue", "yellow", "green")
+par(mar = c(0, 0, 2, 0))
+pie(piepercent, labels = paste(piepercent, "%"), col = colors, main = "Percentage of Active Minutes", cex = 0.55)
+legend("topright", legend = categories, fill = colors, title = "Key", cex = 0.6)
+```
+```{r}
+# Visual for Calories Burned vs Total Steps
+ggplot(data=merged_data, aes(x=totalsteps, y=calories, color = calories)) +
+  geom_point() + 
+  geom_smooth() +
+  labs(x = "Total Steps", y ="Calories Burned" , title = "Total Steps vs Calories Burned")
+```
+
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
