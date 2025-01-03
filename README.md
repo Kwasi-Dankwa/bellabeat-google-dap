@@ -59,6 +59,27 @@ Based on Bella Beat’s request, we are going to examine the daily activities, w
 * Various columns were summarized to uncover trends in order to create visualizations
 
 # Share
+
+## Graph 1
+
+![Steps by the Day of the Week](tsbyweeks.png "Steps by the Day of the Week")
+
+- We see that Tuesday, Wednesday, and Thursday have the most steps, and **Sunday** has the least number of steps. We can assume this behavior is due to users becoming busier with work and/or personal lives during this time and may be too exhausted and least likely to exercise or meet their steps by **Friday-Monday**. 
+- We show that the steps feature is commonly used among users which marketing can reference and apply to their mobile fitness devices as well.
+
+## Graph 2
+![Percentage of Active Minutes](percentage.png "Percentage of Active Minutes")
+
+*The pie chart shows that users are spending the majority of their time inactive which covers 81.3% of the chart.
+*This information can be used by marketing to include a feature that  encourages users to reduce their sedentary minutes and become more active throughout the day with alerts or reminders to encourage movement. 
+*This can create fitness targets that users will want to achieve.
+
+## Graph 3
+![Total Steps vs Calories Burned](caloriesburned.png "Total Steps vs Calories Burned")
+
+* We show a positive correlation between total steps and the calories burned. This indicates the more steps taken, the more calories burned which is important information for Bellabeat to know.
+
+
   
 
 
