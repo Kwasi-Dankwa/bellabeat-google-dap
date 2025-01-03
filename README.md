@@ -53,6 +53,12 @@ After viewing the data, I discovered there are some limitations:
 
 ## Analyze
 Based on Bella Beat’s request, we are going to examine the daily activities, weight, and sleep of the users to see if we can find any trends and correlations. We will then use all of the data collected and analyzed to determine proper marketing strategy suggestions that could help improve the company's marketing
+
+* Data from weight table and daily_activity table were merged into one table
+* A weekday column was added to determine the correlation between the day of the week and various columns.
+* Various columns were summarized to uncover trends in order to create visualizations
+
+# Share
   
 
 
